@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Touch Interactions</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="toca.js"></script>
+    <script>
+    $(document).ready(function() {        
+        $("#button1")
+            .toca({
+                hoverdelay: 300
+            })
+            .on('hoverin',function(event) {
+                $("#log").append('<div>hover in</div>');
+            })
+            .on('hoverout',function(event) {
+                $("#log").append('<div>hover out</div>');
+            })
+            .on('tap',function(event) {
+                $("#log").append('<div>tap</div>');
+            });
+            
+        $("#button2").toca()
+            .on('hoverin',function(event) {
+                $("#log2").append('<div>hover in</div>');
+            })
+            .on('hoverout',function(event) {
+                $("#log2").append('<div>hover out</div>');
+            })
+            .on('tap',function(event) {
+                $("#log2").append('<div>tap</div>');
+            });
+    });
+    </script>
+</head>
+<body>
+<div class='container'>
+    <h1>Touch Interactions</h1>
+    <p>Easy touch interactions.</p>
+    
+    <div style='width: 400px; float: left; margin-right: 10px;'>
+        <button id='button1'>Button with Hover Delay</button>
+        
+        <div style='border: 1px solid black; height: 300px; overflow: auto;' id='log'></div>
+    </div>
+    
+    
+    <div style='width: 400px; float: left;'>
+        <button id='button2'>Button without Hover Delay</button>
+        
+        <div style='border: 1px solid black; height: 300px; overflow: auto;' id='log2'></div>
+    </div>
+    
+</div>
+</body>
+</html>
